@@ -3,10 +3,9 @@ def read_file(filename):
     with open(filename, 'r', encoding='utf-8-sig') as f:
         for line in f:
             lines.append(line.strip())
-        return lines
+     return lines
 
 def convert(lines):
-	a = []
 	count_allen = 0
 	count_viki = 0
 	sticker_allen = 0
@@ -40,9 +39,15 @@ def convert(lines):
 	print('Allen說了', count_allen, '個字')
 	print('Viki說了', count_viki, '個字')
 
+def write_file(filename, lines):
+	with open(filename, 'w', encoding='utf-8') as f:
+		for line in lines:
+			f.write(line + '\n')
+
 
 def main():
     lines = read_file('line_viki.txt')
-    convert(lines)
+    lines = convert(lines)
+    # write_file('output.txt', lines)
 
 main()
